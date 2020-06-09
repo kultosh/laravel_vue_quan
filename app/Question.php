@@ -9,10 +9,12 @@ class Question extends Model
     use VotableTrait;
 
     protected $fillable = ['title', 'body'];
-    
+
+    protected $appends = ['created_date']; 
+
     public function user() {
         return $this->belongsTo(User::class);
-    }    
+    }
 
     public function setTitleAttribute($value)
     {
@@ -60,7 +62,7 @@ class Question extends Model
 
     public function acceptBestAnswer(Answer $answer)
     {
-        $this->best_answer_id = $answer->id; 
+        $this->best_answer_id = $answer->id;
         $this->save();
     }
 

@@ -28,6 +28,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+         protected $appends = ['url', 'avatar']; 
     /**
      * The attributes that should be cast to native types.
      *
@@ -40,7 +41,7 @@ class User extends Authenticatable
     public function questions()
     {
         return $this->hasMany(Question::class);
-    } 
+    }
 
     public function getUrlAttribute()
     {
@@ -51,7 +52,7 @@ class User extends Authenticatable
     public function answers()
     {
         return $this->hasMany(Answer::class);
-    }  
+    }
 
     public function getAvatarAttribute()
     {
@@ -78,14 +79,14 @@ class User extends Authenticatable
     public function voteQuestion(Question $question, $vote)
     {
         $voteQuestions = $this->voteQuestions();
-        
+
         $this->_vote($voteQuestions, $question, $vote);
     }
 
     public function voteAnswer(Answer $answer, $vote)
     {
         $voteAnswers = $this->voteAnswers();
-        
+
         $this->_vote($voteAnswers, $answer, $vote);
     }
 

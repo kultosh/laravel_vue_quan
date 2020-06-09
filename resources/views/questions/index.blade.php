@@ -16,13 +16,13 @@
 
               <div class="card-body">
                   @include('layouts._messages')
-                  
+
                   @forelse($questions as $question)
                  		@include ('questions._excerpt')
                   @empty
                     <div class="alert alert-warning">
                       <strong>Sorry</strong> There are no questions available.
-                    </div> 
+                    </div>
                   @endforelse
                  		{{$questions->links()}}
               </div>

@@ -12,7 +12,7 @@
                             <div class="ml-auto">
                                 <a href="{{ route('questions.index') }}" class="btn btn-outline-secondary">Back to all Questions</a>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                     <hr>
@@ -27,10 +27,11 @@
                                 <div class="col-4"></div>
                                 <div class="col-4"></div>
                                 <div class="col-4">
-                                    @include('shared._author',[
+                                    <!-- @include('shared._author',[
                                         'model' => $question,
                                         'label' => 'asked'
-                                    ])
+                                    ]) -->
+                                    <user-info v-bind:model="{{$question}}" label="Asked"></user-info>
                                 </div>
                             </div>
                         </div>
